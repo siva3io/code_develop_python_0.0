@@ -1,0 +1,92 @@
+<odoo>
+    <data>
+        <!-- actions opening views on models -->
+        <record id="catalogue_template_action_window" model="ir.actions.act_window">
+            <field name="name">Catalogue Template</field>
+            <field name="res_model">catalogue.template</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new Catalogue Template
+                </p>
+                <p>
+                    The catalogue template will define the structure for products from
+                    different categories and different marketplace.
+                </p>
+            </field>
+        </record>
+
+<!--        <record model="ir.actions.act_window" id="catalogue_template_data_action_window">-->
+<!--            <field name="name">Catalogue Template Data</field>-->
+<!--            <field name="res_model">catalogue.template.data</field>-->
+<!--            <field name="view_mode">tree,form</field>-->
+<!--        </record>-->
+
+        <record model="ir.actions.act_window" id="catalogue_template_line_marketplace_action_window">
+            <field name="name">Catalogue Template Line Marketplace</field>
+            <field name="res_model">catalogue.template.line.marketplace</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="catalogue_template_lines_action_window">
+            <field name="name">Catalogue Template Lines</field>
+            <field name="res_model">catalogue.template.lines</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="catalogue_template_marketplace_action_window">
+            <field name="name">Catalogue Template Marketplace</field>
+            <field name="res_model">catalogue.template.marketplace</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="marketplace_action_window">
+            <field name="name">Marketplace</field>
+            <field name="res_model">marketplace</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="product_template_category_action_window">
+            <field name="name">Product Template Category</field>
+            <field name="res_model">product.template.category</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="product_template_category_channel_action_window">
+            <field name="name">Product Template Category Channel</field>
+            <field name="res_model">product.template.category.channel</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="catalogue_template_section_action_window">
+            <field name="name">Catalogue Template Section</field>
+            <field name="res_model">catalogue.template.section</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="catalogue_attribute_category_template_action_window">
+            <field name="name">Catalogue Attribute Category Template</field>
+            <field name="res_model">attribute.category.template</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="catalogue_attribute_category_data_action_window">
+            <field name="name">Catalogue Attribute Category Data</field>
+            <field name="res_model">attribute.category.data</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="catalogue_attribute_value_template_action_window">
+            <field name="name">Catalogue Attribute Value Template</field>
+            <field name="res_model">attribute.value.template</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="catalogue_attribute_value_data_action_window">
+            <field name="name">Catalogue Attribute Value Data</field>
+            <field name="res_model">attribute.value.data</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

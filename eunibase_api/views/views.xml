@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="eunibase_api.list">
+      <field name="name">eunibase_api list</field>
+      <field name="model">eunibase_api.eunibase_api</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="eunibase_api.action_window">
+      <field name="name">eunibase_api window</field>
+      <field name="res_model">eunibase_api.eunibase_api</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="eunibase_api.action_server">
+      <field name="name">eunibase_api server</field>
+      <field name="model_id" ref="model_eunibase_api_eunibase_api"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="eunibase_api" id="eunibase_api.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="eunibase_api.menu_1" parent="eunibase_api.menu_root"/>
+    <menuitem name="Menu 2" id="eunibase_api.menu_2" parent="eunibase_api.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="eunibase_api.menu_1_list" parent="eunibase_api.menu_1"
+              action="eunibase_api.action_window"/>
+    <menuitem name="Server to list" id="eunibase_api" parent="eunibase_api.menu_2"
+              action="eunibase_api.action_server"/>
+-->
+  </data>
+</odoo>

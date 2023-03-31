@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fims_rom,access_fims_rom,model_fims_rom,,1,1,1,1
+access_rom_product_lines,access_rom_product_lines,model_rom_product_lines,,1,1,1,1
+access_rom_repair_lines,access_rom_repair_lines,model_rom_repair_lines,,1,1,1,1
+

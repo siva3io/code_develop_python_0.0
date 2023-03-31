@@ -1,0 +1,81 @@
+<odoo>
+    <data>
+        <!-- Top menu item -->
+        <menuitem name="Catalogue" id="menu_catalogue_root" sequence="10"
+                  web_icon="catalogue,static/description/icon.png"/>
+
+
+        <!-- menu categories -->
+        <!--
+            <menuitem name="Menu 1" id="catalogue.menu_1" parent="catalogue.menu_root"/>
+            <menuitem name="Menu 2" id="catalogue.menu_2" parent="catalogue.menu_root"/>
+        -->
+        <!-- actions -->
+        <menuitem action="catalogue_template_action_window"
+                  id="catalogue_template_menu"
+                  parent="menu_catalogue_root" sequence="1"
+                  name="Catalogue Template"/>
+
+<!--        <menuitem action="catalogue_template_data_action_window"-->
+<!--                  id="catalogue_template_data_menu"-->
+<!--                  parent="menu_catalogue_root" sequence="7"-->
+<!--                  name="Catalogue Template Data"/>-->
+
+        <menuitem action="catalogue_template_line_marketplace_action_window"
+                  id="catalogue_template_line_marketplace_menu"
+                  parent="menu_catalogue_root" sequence="5"
+                  name="Catalogue Template Line Marketplace"/>
+
+        <menuitem action="catalogue_template_lines_action_window"
+                  id="catalogue_template_lines_menu"
+                  parent="menu_catalogue_root" sequence="2"
+                  name="Catalogue Template Lines"/>
+
+        <menuitem action="catalogue_template_marketplace_action_window"
+                  id="catalogue_template_marketplace_menu"
+                  parent="menu_catalogue_root" sequence="4"
+                  name="Catalogue Template Marketplace"/>
+
+        <menuitem action="marketplace_action_window"
+                  id="marketplace_menu"
+                  parent="menu_catalogue_root" sequence="3"
+                  name="Marketplace"/>
+
+        <menuitem action="product_template_category_action_window"
+                  id="product_template_category_menu"
+                  parent="menu_catalogue_root" sequence="6"
+                  name="Product Template Category"/>
+
+        <menuitem action="product_template_category_channel_action_window"
+                  id="product_template_category_channel_menu"
+                  parent="menu_catalogue_root" sequence="7"
+                  name="Product Template Category Channel"/>
+
+        <menuitem action="catalogue_template_section_action_window"
+                  id="catalogue_template_section_menu"
+                  parent="menu_catalogue_root" sequence="8"
+                  name="Catalogue Template Section"/>
+
+        <menuitem id="menu_catalogue_in_config_stock" name="Catalogue Attributes" parent="stock.menu_stock_config_settings" sequence="4"/>
+
+        <menuitem action="catalogue_attribute_category_template_action_window"
+                  id="catalogue_attribute_category_template_menu"
+                  parent="menu_catalogue_in_config_stock" sequence="1"
+                  name="Attribute Category Template"/>
+
+        <menuitem action="catalogue_attribute_category_data_action_window"
+                  id="catalogue_attribute_category_data_menu"
+                  parent="menu_catalogue_in_config_stock" sequence="2"
+                  name="Attribute Category Data"/>
+
+        <menuitem action="catalogue_attribute_value_template_action_window"
+                  id="catalogue_attribute_value_template_menu"
+                  parent="menu_catalogue_in_config_stock" sequence="3"
+                  name="Attribute Value Template"/>
+
+        <menuitem action="catalogue_attribute_value_data_action_window"
+                  id="catalogue_attribute_value_data_menu"
+                  parent="menu_catalogue_in_config_stock" sequence="4"
+                  name="Attribute Value Data"/>
+    </data>
+</odoo>

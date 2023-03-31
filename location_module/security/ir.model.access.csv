@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_location_module_location_module,location_module.location_module,model_location_module_location_module,base.group_user,1,1,1,1

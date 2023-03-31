@@ -1,0 +1,198 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="catalogue_template_list">
+            <field name="name">Catalogue Template list</field>
+            <field name="model">catalogue.template</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="active"/>
+                    <field name="category_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="catalogue_template_from">
+            <field name="name">Catalogue Template from</field>
+            <field name="model">catalogue.template</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group col="2">
+                            <group>
+                                <field name="category_id"/>
+                            </group>
+                            <group>
+                                <field name="active" widget="boolean_toggle"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="product_ids">
+                                <tree string="Registration mail" editable="bottom">
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                            <field name="line_ids"/>
+                            <field name="marketplace_ids" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="catalogue.action_server">
+              <field name="name">catalogue server</field>
+              <field name="model_id" ref="model_catalogue_catalogue"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+        <!-- Inherit Product Form View to Modify it -->
+        <record id="product_normal_form_view_inherit_catalogue" model="ir.ui.view">
+            <field name="name">product.product.catalogue</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='inventory']" position="after">
+                    <page string="Catalogue" name="catalogue">
+                        <group>
+                            <field name="catalogue_id"/>
+                            <field name="product_parameters"/>
+                            <field name="image_urls"/>
+                            <field name="description"/>
+                            <field name="dimensions"/>
+                            <field name="attribute_ids"/>
+                            <field name="brand"/>
+                            <field name="condition_type"/>
+                            <field name="user_id"/>
+                            <field name="sku_id"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_product_template_from_catalogue" model="ir.ui.view">
+            <field name="name">product.template.catalogue</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='variants']" position="after">
+                    <page string="Catalogue" name="catalogue">
+                        <group>
+                            <field name="template_category_id"/>
+                            <field name="sku_id"/>
+<!--                             <field name="shipping_partner_ids"/> -->
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_category_property_form_catalogue" model="ir.ui.view">
+            <field name="name">product.category.catalogue</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="arch" type="xml">
+                <group name="first" position="after">
+                    <group string="Inventory Valuation">
+                        <field name="bulk_upload_excel_upload"/>
+                        <field name="product_template_category_id"/>
+                    </group>
+                </group>
+            </field>
+        </record>
+        
+        <record id="catalogue_template_lines_view_tree" model="ir.ui.view">
+            <field name="name">catalogue_template_lines_view_tree</field>
+            <field name="model">catalogue.template.lines</field>
+            <field name="arch" type="xml">
+                <tree string="catalogue_template_lines_tree">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="is_mandatory"/>
+                    <field name="product_template_category_id"/>
+                    <field name="allowed_values"/>
+                    <field name="is_reviewed"/>
+                    <field name="possible_keywords"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="catalogue_template_lines_view_form" model="ir.ui.view">
+            <field name="name">catalogue_template_lines_view_form</field>
+            <field name="model">catalogue.template.lines</field>
+            <field name="arch" type="xml">
+                <form string="catalogue_template_lines_form">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="catalogue_id"/>
+                            </group>
+                            <field name="type"/>
+                            <field name="marketplace_line_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="type"/>
+                                    <field name="marketplace_id"/>
+                                    <field name="is_mandatory"/>
+                                    <field name="mandatory_type"/>
+                                    <field name="allowed_values"/>
+                                    <field name="possible_keywords"/>
+                                </tree>
+                            </field>
+                            <group>
+                                <field name="code"/>
+                                <field name="active"/>
+                            </group>
+                            <group>
+                                <field name="catalogue_template_section_id"/>
+                                <field name="product_template_category_id"/>
+                            </group>
+                            <group>
+                                <field name="attribute_validation_regex"/>
+                                <field name="allowed_values"/>
+                                <field name="possible_keywords"/>
+                            </group>
+                            <group>
+                                <field name="sequence"/>
+                                <field name="is_searchable"/>
+                            </group>
+                            <group>
+                                <field name="is_reviewed"/>
+                                <field name="is_predictable"/>
+                                <field name="is_mandatory"/>
+                                <field name="mandatory_type"/>
+                            </group>
+                            <group>
+                                <field name="attribute_description"/>
+                                <field name="algo_code"/>
+                                <field name="python_code"/>
+                            </group>
+                            <group>
+                                <field name="domain"/>
+                                <field name="json_code"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

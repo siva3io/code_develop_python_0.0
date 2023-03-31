@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="api_demo.demo_form" name="Api Demo Form Portal">
+        <div class="bg-white pl-5 pr-5 pb-5 pt-4" id="api_demo">
+            <table>
+                <tbody>
+                    <tr/>
+                    <tr>
+                        <td>
+                            <div t-att-class="category">
+                                <strong>Choose Category</strong>
+                                <input type="text" list="radioCategory" placeholder="Select your template type" size="25"/>
+                                <datalist id="radioCategory" placeholder="Select your template type">
+                                    <t t-foreach="category" t-as="radio">
+                                        <option t-att-value="radio['name']" t-att-id="radio['id']"
+                                                t-att-data-id="radio['id'] or 'false'"
+                                                t-att-data-sub-category="[str(i['name']) for i in radio['sub_categories'] or []]">
+                                        </option>
+                                    </t>
+                                </datalist>
+                                <span class="removeClick" style="font-weight: bold; cursor: pointer;">&amp;times;</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr/>
+                    <tr>
+                        <td>
+                            <div t-att-class="sub_category">
+                                <strong>Choose Sub Category</strong>
+                                <input type="text" list="radioSubCategory" placeholder="Select your template type" size="25"/>
+                                <datalist id="radioSubCategory" placeholder="Select your template type">
+                                    <t t-foreach="category" t-as="categ">
+                                        <t t-foreach="categ['sub_categories']" t-as="radio">
+                                            <option t-att-value="radio['name']" t-att-id="radio['id']"
+                                                    t-att-data-id="radio['id'] or 'false'">
+                                            </option>
+                                        </t>
+                                    </t>
+                                </datalist>
+                                <span class="removeClick" style="font-weight: bold; cursor: pointer;">&amp;times;</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr/>
+                    <tr>
+                        <td>
+                            <div t-att-class="productName">
+                                <strong>Product Name</strong>
+                                <input type="text" placeholder="Enter Product name" size="25" id="productName"/>
+                                <span class="removeClick" style="font-weight: bold; cursor: pointer;">&amp;times;</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr/>
+                    <tr>
+                        <td>
+                            <button class="btn-primary" id="sendCatalogue">Submit</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <form id="dynamicForm" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"/>
+        <script src="/api_demo/static\src\js\backend\api_demo.js"/>
+        <script src="/api_demo/static\src\js\backend\dform.js"/>
+    </template>
+
+</odoo>

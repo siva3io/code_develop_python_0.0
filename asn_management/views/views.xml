@@ -1,0 +1,37 @@
+<odoo>
+  <data>
+
+    <record id="asn_view_form" model="ir.ui.view">
+        <field name="name">asn_view_form</field>
+        <field name="model">asn.asn</field>
+        <field name="arch" type="xml">
+            <form string="asn_form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="asn_number"/>
+                        <field name="drop_location_id"/>
+                        <field name="pickup_location_id"/>
+                        <field name="picking_id"/>
+                        <field name="purchase_id"/>
+                        <field name="line_ids"/>
+                        <field name="state"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="asn_menu_action" model="ir.actions.act_window">
+      <field name="name">ASN</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">asn.asn</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+    <menuitem id="asn_root" name="ASN" sequence="5"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="asn_categ" name="ASN" parent="asn_root" action="asn_menu_action"/>
+  </data>
+</odoo>

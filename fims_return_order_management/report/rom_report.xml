@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_rom_report" model="ir.actions.report">
+            <field name="name">ROM Report</field>
+            <field name="model">fims.rom</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">fims_return_order_management.rom_report</field>
+            <field name="report_file">fims_return_order_management.rom_report</field>
+            <field name="binding_model_id" ref="model_fims_rom"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>
